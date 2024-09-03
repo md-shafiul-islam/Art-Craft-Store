@@ -4,17 +4,17 @@ import { NavLink } from "react-router-dom";
 const NavBar = () => {
   return (
     <React.Fragment>
-      <li>
+      <li className="text-white font-semibold border-b border-transparent hover:bg-none hover:border-white">
         <NavLink to="/">Home</NavLink>
       </li>
-      <li>
-        <NavLink to="/categories"> Art & Craft</NavLink>
+      <li className="text-white font-semibold border-b border-transparent hover:bg-none hover:border-white">
+        <NavLink to="/categories"> Category</NavLink>
       </li>
-      <li>
+      <li className="text-white font-semibold border-b border-transparent hover:bg-none hover:border-white">
         <NavLink to="/products"> Art & Craft</NavLink>
       </li>
 
-      <li>
+      <li className="text-white font-semibold border-b border-transparent hover:bg-none hover:border-white">
         <NavLink to="/blog">Blog</NavLink>
       </li>
     </React.Fragment>
