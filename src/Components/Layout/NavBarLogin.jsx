@@ -5,17 +5,17 @@ const NavBar = () => {
   return (
     <React.Fragment>
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/add-items">Add Craft Item</NavLink>
       </li>
       <li>
-        <NavLink to="/categories"> Art & Craft</NavLink>
+        <NavLink to="/my-crafts"> My Art & Craft</NavLink>
       </li>
       <li>
-        <NavLink to="/products"> Art & Craft</NavLink>
+        <NavLink to="/login">Login</NavLink>
       </li>
 
       <li>
-        <NavLink to="/blog">Blog</NavLink>
+        <NavLink to="/register">Register</NavLink>
       </li>
     </React.Fragment>
   );
