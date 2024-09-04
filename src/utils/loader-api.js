@@ -16,7 +16,6 @@ export const getAllItemsUsingQuery = async (
   customizable = false,
   rating = null
 ) => {
-
   try {
     const resp = await axios.get(
       `${
@@ -25,6 +24,43 @@ export const getAllItemsUsingQuery = async (
     );
 
     return resp;
+  } catch (error) {
+    console.log("Product response error ", error);
+    return [];
+  }
+};
+
+export const getCraftItemsById = async (id) => {
+  try {
+    const resp = await axios.get(
+      `${import.meta.env.VITE_API_URL}/products/${id}`
+    );
+
+    return resp.data;
+  } catch (error) {
+    console.log("Product response error ", error);
+    return [];
+  }
+};
+
+export const getCraftItemsByCat = async (cat) => {
+  try {
+    const resp = await axios.get(
+      `${import.meta.env.VITE_API_URL}/products/categories/${cat}`
+    );
+
+    return resp.data;
+  } catch (error) {
+    console.log("Product response error ", error);
+    return [];
+  }
+};
+
+export const getCraftItems = async () => {
+  try {
+    const resp = await axios.get(`${import.meta.env.VITE_API_URL}/products`);
+
+    return resp.data;
   } catch (error) {
     console.log("Product response error ", error);
     return [];

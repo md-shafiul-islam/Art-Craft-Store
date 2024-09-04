@@ -1,10 +1,13 @@
 import React from "react";
 import AuthProvider from "./AuthProvider";
+import CategoryProvider from "./CategoryProvider";
 
 const ContextWrapper = ({ children, ...props }) => {
   return (
     <React.Fragment {...props}>
-      <AuthProvider>{children}</AuthProvider>
+      <AuthProvider>
+        <CategoryProvider>{children}</CategoryProvider>
+      </AuthProvider>
     </React.Fragment>
   );
 };

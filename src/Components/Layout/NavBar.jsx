@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import CategoryLinkItems from "./CategoryLinkItems";
 
 const NavBar = () => {
   return (
@@ -8,10 +9,15 @@ const NavBar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li className="text-white font-semibold border-b border-transparent hover:bg-none hover:border-white">
-        <NavLink to="/categories"> Category</NavLink>
+        <details>
+          <summary>Category</summary>
+          <ul className="bg-gray-400 rounded-t-none p-2 z-50 w-auto">
+            <CategoryLinkItems />
+          </ul>
+        </details>
       </li>
       <li className="text-white font-semibold border-b border-transparent hover:bg-none hover:border-white">
-        <NavLink to="/products"> Art & Craft</NavLink>
+        <NavLink to="/art-crafts"> Art & Craft</NavLink>
       </li>
 
       <li className="text-white font-semibold border-b border-transparent hover:bg-none hover:border-white">
