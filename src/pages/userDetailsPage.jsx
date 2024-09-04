@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "../Components/Context/AuthProvider";

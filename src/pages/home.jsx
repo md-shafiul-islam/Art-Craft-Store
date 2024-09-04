@@ -1,8 +1,31 @@
-import React from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Helmet } from "react-helmet";
 import { NavLink } from "react-router-dom";
+import { isEmptyOrNull, onNotifyError, onNotifySuccess } from "../utils/helper";
 
 const HomePage = () => {
+  const [craftItems, setCraftItems] = useState([]);
+
+  useEffect(() => {
+    axios
+      .get(
+        `${
+          import.meta.env.VITE_API_URL
+        }/products/query?stock=${true}&customizable=${true}`
+      )
+      .then((resp) => {
+        if (!isEmptyOrNull(resp.data)) {
+          if (!isEmptyOrNull(resp.data.status)) {
+            setCraftItems(resp.data.response);
+            onNotifySuccess(resp.data.message);
+          }
+        }
+      })
+      .catch((error) => {
+        onNotifyError(error.message);
+      });
+  }, []);
   return (
     <React.Fragment>
       <Helmet>
@@ -37,29 +60,38 @@ const HomePage = () => {
 
       <section>
         <div className="grid grid-cols-12 gap-5 my-6">
-          <div className="box-border col-span-3 flex flex-col p-5 gap-4 border-gray-300 shadow-xl rounded-md border">
-
-            <div className="rounded-xl">
-              <img src={`/images/art-1.webp`} />
-            </div>
-            <h2>BeverleySavilleArt</h2>
-            <div className="text-lg font-medium flex flex-row justify-between">
-              <div className="">
-                Price:<i className="fa-solid fa-bangladeshi-taka-sign"></i> 500
-              </div>
-              <div className="">
-                <i className="fa-regular fa-star"></i> 4.5
-              </div>
-            </div>
-            <div className="w-full">
-              <NavLink
-                className="w-full rounded-sm bg-orange-500 text-white block text-center py-2 font-semibold hover:bg-orange-700"
-                to={`/products/1`}
+          {craftItems?.map((item) => {
+            return (
+              <div
+                key={`art&craft-${item?._id}`}
+                className="box-border col-span-3 flex flex-col p-5 gap-4 border-gray-300 shadow-xl rounded-md border"
               >
-                View Details
-              </NavLink>
-            </div>
-          </div>
+                <div className="rounded-xl">
+                  <img src={item?.image} alt={item.itemName} />
+                </div>
+                <h2 className="text-xl font-bold">{item.itemName}</h2>
+                <h3 className="text-base font-semibold">{item?.category}</h3>
+                <div className="text-lg font-medium flex flex-row justify-between">
+                  <div className="">
+                    Price:<i className="fa-solid fa-bangladeshi-taka-sign"></i>{" "}
+                    {item?.price}
+                  </div>
+                  <div className="">
+                    <i className="text-amber-600 fa-solid fa-star"></i>{" "}
+                    {item?.rating}
+                  </div>
+                </div>
+                <div className="w-full">
+                  <NavLink
+                    className="w-full rounded-sm bg-orange-500 text-white block text-center py-2 font-semibold hover:bg-orange-700"
+                    to={`/products/${item?._id}`}
+                  >
+                    View Details
+                  </NavLink>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
     </React.Fragment>
