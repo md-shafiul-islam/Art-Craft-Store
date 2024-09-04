@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 
-const NavBar = () => {
+const NavBarLogin = ({ onLogOut, ...props }) => {
   return (
     <React.Fragment>
       <li>
@@ -11,14 +11,10 @@ const NavBar = () => {
         <NavLink to="/my-crafts"> My Art & Craft</NavLink>
       </li>
       <li>
-        <NavLink to="/login">Login</NavLink>
-      </li>
-
-      <li>
-        <NavLink to="/register">Register</NavLink>
+        <span onClick={onLogOut}>Logout</span>
       </li>
     </React.Fragment>
   );
 };
 
-export default NavBar;
+export default NavBarLogin;

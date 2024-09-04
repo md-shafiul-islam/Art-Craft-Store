@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 
 import NavBar from "./NavBar";
+import ProfileNav from "./ProfileNav";
 
 const Header = () => {
   return (
@@ -32,15 +33,9 @@ const Header = () => {
                   />
                 </svg>
               </div>
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content  rounded-box z-50 mt-3 w-52 p-2 shadow space-x-2"
-              >
-                <NavBar />
-              </ul>
             </div>
-            <NavLink to={"/"} className="btn btn-ghost text-xl">
-              <i className="fa-brands fa-firstdraft"></i>
+            <NavLink to={"/"} className=" text-white text-xl">
+              <i className="fa-brands fa-firstdraft"></i>&nbsp;
               Ayat Craft
             </NavLink>
           </div>
@@ -49,7 +44,9 @@ const Header = () => {
               <NavBar />
             </ul>
           </div>
-          <div className="navbar-end space-x-3">Login</div>
+          <div className="navbar-end space-x-3">
+            <ProfileNav />
+          </div>
         </div>
       </div>
     </div>
