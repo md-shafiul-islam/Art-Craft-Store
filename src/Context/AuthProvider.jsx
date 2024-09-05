@@ -13,9 +13,10 @@ import {
   updateProfile,
 } from "firebase/auth";
 
-
 import fireBaseApp from "../utils/firebase-config";
 import { isEmptyOrNull, onNotifyError, onNotifySuccess } from "../utils/helper";
+import axios from "axios";
+import { addUserUsingAPI } from "../utils/loader-api";
 
 export const AuthContext = createContext(null);
 const AuthProvider = ({ children, ...props }) => {
@@ -60,9 +61,19 @@ const AuthProvider = ({ children, ...props }) => {
         onNotifySuccess("Registration successful");
 
         let url = user.photoURL;
-        if (!isEmptyOrNull(photoURL)) {
+        if (!isEmptyOrNull(user.photoURL)) {
           url = photoURL;
         }
+
+        const { email, photoURL, emailVerified, uid, phoneNumber } = user;
+        addUserUsingAPI({
+          displayName: name,
+          email,
+          photoURL,
+          emailVerified,
+          uid,
+          phoneNumber,
+        });
 
         updateProfile(user, { displayName: name, photoURL: url })
           .then((update) => {

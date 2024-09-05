@@ -66,3 +66,14 @@ export const getCraftItems = async () => {
     return [];
   }
 };
+
+export const addUserUsingAPI = async (user) => {
+  try {
+    const resp = await axios.post(
+      `${import.meta.env.VITE_API_URL}/users`,
+      user
+    );
+  } catch (error) {
+    console.log("User Add failed Error", error);
+  }
+};
