@@ -4,6 +4,7 @@ import ShortText from "./ShortText";
 import { NavLink } from "react-router-dom";
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/pagination";
 import RatingCard from "./RatingCard";
 
 const CraftSlider = ({ sliders = [], ...props }) => {
@@ -38,7 +39,9 @@ const CraftSlider = ({ sliders = [], ...props }) => {
                           <span>Rating: {item?.rating}</span>
                           <RatingCard rating={item?.rating} />
                         </div>
-                        <h3 className="text-md font-bold">Category: {item?.category}</h3>
+                        <h3 className="text-md font-bold">
+                          Category: {item?.category}
+                        </h3>
                         <p>
                           <ShortText
                             size={130}

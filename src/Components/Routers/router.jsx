@@ -14,6 +14,7 @@ import {
 import ItemSinglePage from "../../pages/itemSinglePage";
 import CategoryPage from "../../pages/categoryPage";
 import ArtAndCraft from "../../pages/artAndCraft";
+import ContactPage from "../../pages/contactPage";
 
 const router = createBrowserRouter([
   {
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
         loader: async ({ params }) => {
           return getCraftItemsByCat(params?.cat);
         },
+      },
+      {
+        path: "/contact-us",
+        element: <ContactPage />,
       },
     ],
   },

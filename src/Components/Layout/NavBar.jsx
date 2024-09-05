@@ -21,7 +21,7 @@ const NavBar = () => {
       </li>
 
       <li className="text-white font-semibold border-b border-transparent hover:bg-none hover:border-white">
-        <NavLink to="/blog">Blog</NavLink>
+        <NavLink to="/contact-us">Contact Us</NavLink>
       </li>
     </React.Fragment>
   );

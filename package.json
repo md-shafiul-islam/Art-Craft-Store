@@ -12,6 +12,7 @@
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
     "@vitejs/plugin-react": "^4.3.1",
+    "aos": "^3.0.0-beta.6",
     "axios": "^1.7.7",
     "firebase": "^10.13.1",
     "localforage": "^1.10.0",
@@ -21,7 +22,9 @@
     "react-helmet": "^6.1.0",
     "react-hook-form": "^7.53.0",
     "react-router-dom": "^6.26.1",
+    "react-simple-typewriter": "^5.0.1",
     "react-toastify": "^10.0.5",
+    "react-tooltip": "^5.28.0",
     "sort-by": "^1.2.0",
     "swiper": "^11.1.12",
     "yup": "^1.4.0"

@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="footer text-base-content p-10 bg-gray-800">
+    <footer className="footer  p-10 bg-gray-800 text-white">
       <aside>
         <span className="text-2xl">
           <i className="fa-brands fa-firstdraft"></i>
@@ -19,11 +19,11 @@ const Footer = () => {
         <NavLink to={"/"} className="link link-hover">
           Home
         </NavLink>
-        <NavLink to={"/properties"} className="link link-hover">
-          Properties
+        <NavLink to={"/art-crafts"} className="link link-hover">
+          Art & Craft
         </NavLink>
-        <NavLink to={"/contact"} className="link link-hover">
-          Contact
+        <NavLink to={"/contact-us"} className="link link-hover">
+          Contact Us
         </NavLink>
         <NavLink to="/register" className="link link-hover">
           Register

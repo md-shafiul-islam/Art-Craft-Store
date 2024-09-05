@@ -35,8 +35,7 @@ const Header = () => {
               </div>
             </div>
             <NavLink to={"/"} className=" text-white text-xl">
-              <i className="fa-brands fa-firstdraft"></i>&nbsp;
-              Ayat Craft
+              <i className="fa-brands fa-firstdraft"></i>&nbsp; Ayat Art & Craft
             </NavLink>
           </div>
           <div className="navbar-center hidden lg:flex">
