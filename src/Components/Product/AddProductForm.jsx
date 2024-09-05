@@ -29,7 +29,6 @@ const AddProductForm = ({ initValues, categories = [] }) => {
     formState: { errors },
     reset,
   } = useForm({ resolver: yupResolver(schema), defaultValues: initValues });
-  console.log("Error ", errors);
 
   const onItemAddAction = (values) => {
     onNotify("Sending item add request. Please wait");

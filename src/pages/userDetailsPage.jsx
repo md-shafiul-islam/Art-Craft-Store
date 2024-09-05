@@ -32,7 +32,7 @@ const UserDetailsPage = () => {
   return (
     <React.Fragment>
       <Helmet>
-        <title>U-Estate | User Profile</title>
+        <title>Ayat Art & Craft | User Profile</title>
       </Helmet>
       <div className="w-full min-h-screen grid grid-cols-12 gap-6">
         <div className="w-full min-h-screen col-span-2"></div>

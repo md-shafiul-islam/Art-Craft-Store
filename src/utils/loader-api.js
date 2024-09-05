@@ -2,7 +2,9 @@ import axios from "axios";
 
 export const getAllCategory = async () => {
   try {
-    const resp = await axios.get(`${import.meta.env.VITE_API_URL}/categories`);
+    const resp = await axios.get(`${import.meta.env.VITE_API_URL}/categories`, {
+      headers: REQUEST_HEADER,
+    });
 
     return resp;
   } catch (error) {
@@ -20,7 +22,8 @@ export const getAllItemsUsingQuery = async (
     const resp = await axios.get(
       `${
         import.meta.env.VITE_API_URL
-      }/products/query?stock=${stock}&customizable=${customizable}&rating=${rating}`
+      }/products/query?stock=${stock}&customizable=${customizable}&rating=${rating}`,
+      { headers: REQUEST_HEADER }
     );
 
     return resp;
@@ -33,7 +36,8 @@ export const getAllItemsUsingQuery = async (
 export const getCraftItemsById = async (id) => {
   try {
     const resp = await axios.get(
-      `${import.meta.env.VITE_API_URL}/products/${id}`
+      `${import.meta.env.VITE_API_URL}/products/${id}`,
+      { headers: REQUEST_HEADER }
     );
 
     return resp.data;
@@ -46,7 +50,8 @@ export const getCraftItemsById = async (id) => {
 export const getCraftItemsByCat = async (cat) => {
   try {
     const resp = await axios.get(
-      `${import.meta.env.VITE_API_URL}/products/categories/${cat}`
+      `${import.meta.env.VITE_API_URL}/products/categories/${cat}`,
+      { headers: REQUEST_HEADER }
     );
 
     return resp.data;
@@ -58,7 +63,9 @@ export const getCraftItemsByCat = async (cat) => {
 
 export const getCraftItems = async () => {
   try {
-    const resp = await axios.get(`${import.meta.env.VITE_API_URL}/products`);
+    const resp = await axios.get(`${import.meta.env.VITE_API_URL}/products`, {
+      headers: REQUEST_HEADER,
+    });
 
     return resp.data;
   } catch (error) {
@@ -71,7 +78,8 @@ export const addUserUsingAPI = async (user) => {
   try {
     const resp = await axios.post(
       `${import.meta.env.VITE_API_URL}/users`,
-      user
+      user,
+      { headers: REQUEST_HEADER }
     );
   } catch (error) {
     console.log("User Add failed Error", error);

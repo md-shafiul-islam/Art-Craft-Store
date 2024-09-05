@@ -17,7 +17,9 @@ const MyArtAndCraft = ({ ...props }) => {
       ? user?.email
       : user?.displayName;
     axios
-      .get(`${import.meta.env.VITE_API_URL}/products/users/${queryName}`)
+      .get(`${import.meta.env.VITE_API_URL}/products/users/${queryName}`, {
+        headers: REQUEST_HEADER,
+      })
       .then(({ data }) => {
         if (!isEmptyOrNull(data)) {
           if (data.status) {

@@ -7,7 +7,7 @@ import ItemCard from "../Components/Utils/ItemCard";
 import CraftSlider from "../Components/Utils/CraftSlider";
 import ShortText from "../Components/Utils/ShortText";
 import { Typewriter } from "react-simple-typewriter";
-import 'react-tooltip/dist/react-tooltip.css'
+import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
 const HomePage = () => {
   const [craftItems, setCraftItems] = useState([]);
@@ -17,7 +17,8 @@ const HomePage = () => {
       .get(
         `${
           import.meta.env.VITE_API_URL
-        }/products/query?stock=${true}&customizable=${true}`
+        }/products/query?stock=${true}&customizable=${true}`,
+        { headers: REQUEST_HEADER }
       )
       .then((resp) => {
         if (!isEmptyOrNull(resp.data)) {
@@ -55,7 +56,12 @@ const HomePage = () => {
           <h1 className="font-semibold text-4xl my-10">
             <span className="border-b py-2">
               Welcome Ayat{" "}
-              <Typewriter words={["Craft", "Art", "Art & Craft"]} cursor deleteSpeed={120} typeSpeed={130} />
+              <Typewriter
+                words={["Craft", "Art", "Art & Craft"]}
+                cursor
+                deleteSpeed={120}
+                typeSpeed={130}
+              />
             </span>
           </h1>{" "}
         </div>
@@ -127,13 +133,16 @@ const HomePage = () => {
               </p>
               <div className="flex flex-row  items-center">
                 <NavLink
-                id="get-in-tuch"
+                  id="get-in-tuch"
                   to="/contact-us"
                   className="bg-green-800 py-2 px-4 text-white font-semibold"
                 >
                   Get In Touch
                 </NavLink>
-                <Tooltip anchorSelect="#get-in-tuch" content="More information Go" />
+                <Tooltip
+                  anchorSelect="#get-in-tuch"
+                  content="More information Go"
+                />
               </div>
             </div>
             <div className="p-5">
