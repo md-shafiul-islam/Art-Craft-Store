@@ -4,6 +4,8 @@ import { Helmet } from "react-helmet";
 import { NavLink } from "react-router-dom";
 import { isEmptyOrNull, onNotifyError, onNotifySuccess } from "../utils/helper";
 import ItemCard from "../Components/Utils/ItemCard";
+import CraftSlider from "../Components/Utils/CraftSlider";
+import ShortText from "../Components/Utils/ShortText";
 
 const HomePage = () => {
   const [craftItems, setCraftItems] = useState([]);
@@ -32,28 +34,10 @@ const HomePage = () => {
       <Helmet>
         <title>Ayat Craft | Home</title>
       </Helmet>
-      <section className="w-full flex flex-col justify-center items-center my-6">
+      <section className="container mx-auto">
         {/* Slider Start */}
-        <div className="w-full grid grid-cols-3">
-          <div className="col-span-1">
-            <div className="card lg:card-side bg-base-100 shadow-xl">
-              <div className="card-body">
-                <h2 className="card-title">New album is released!</h2>
-                <p>Click the button to listen on Spotiwhy app.</p>
-                <div className="card-actions justify-end">
-                  <button className="btn btn-primary">Listen</button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-span-2">
-            <figure>
-              <img
-                src="https://img.daisyui.com/images/stock/photo-1494232410401-ad00d5433cfa.webp"
-                alt="Album"
-              />
-            </figure>
-          </div>
+        <div className="w-full h-[480px] py-4 my-6 bg-gradient-to-r from-slate-500 to-slate-200 rounded-md p-5 ">
+          <CraftSlider sliders={craftItems} />
         </div>
 
         {/* Slider End */}
