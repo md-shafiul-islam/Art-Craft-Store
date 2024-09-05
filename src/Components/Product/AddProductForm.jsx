@@ -28,7 +28,7 @@ const AddProductForm = ({ initValues, categories = [] }) => {
     watch,
     formState: { errors },
     reset,
-  } = useForm({ resolver: yupResolver(schema) });
+  } = useForm({ resolver: yupResolver(schema), defaultValues: initValues });
   console.log("Error ", errors);
 
   const onItemAddAction = (values) => {

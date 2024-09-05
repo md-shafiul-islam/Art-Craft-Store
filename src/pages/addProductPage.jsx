@@ -1,15 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { isEmptyOrNull } from "../utils/helper";
 import AddProductForm from "../Components/Product/AddProductForm";
+import { AuthContext } from "../Context/AuthProvider";
 
 const AddProductPage = () => {
   const categoryResp = useLoaderData();
 
   const [categories, setCategories] = useState([]);
 
+  const { user } = useContext(AuthContext);
+
   useEffect(() => {
-    console.log("Category Resp, ", categoryResp);
     if (!isEmptyOrNull(categoryResp)) {
       if (!isEmptyOrNull(categoryResp.data)) {
         if (categoryResp.data.status) {
@@ -19,7 +21,10 @@ const AddProductPage = () => {
     }
   }, [categoryResp]);
 
-  const initValues = {};
+  const initValues = {
+    userName: user.displayName,
+    userEmail: user.email,
+  };
 
   return (
     <React.Fragment>
