@@ -15,6 +15,7 @@ import ItemSinglePage from "../../pages/itemSinglePage";
 import CategoryPage from "../../pages/categoryPage";
 import ArtAndCraft from "../../pages/artAndCraft";
 import ContactPage from "../../pages/contactPage";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +37,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/add-items",
-        element: <AddProductPage />,
+        element: (
+          <PrivateRoute>
+            <AddProductPage />
+          </PrivateRoute>
+        ),
         loader: getAllCategory,
       },
       {

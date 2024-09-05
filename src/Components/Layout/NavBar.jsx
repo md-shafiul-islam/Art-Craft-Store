@@ -19,7 +19,12 @@ const NavBar = () => {
       <li className="text-white font-semibold border-b border-transparent hover:bg-none hover:border-white">
         <NavLink to="/art-crafts"> Art & Craft</NavLink>
       </li>
-
+      <li className="text-white font-semibold border-b border-transparent hover:bg-none hover:border-white">
+        <NavLink to="/add-items">Add Craft Item</NavLink>
+      </li>
+      <li className="text-white font-semibold border-b border-transparent hover:bg-none hover:border-white">
+        <NavLink to="/my-crafts"> My Art & Craft</NavLink>
+      </li>
       <li className="text-white font-semibold border-b border-transparent hover:bg-none hover:border-white">
         <NavLink to="/contact-us">Contact Us</NavLink>
       </li>
