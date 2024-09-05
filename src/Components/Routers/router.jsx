@@ -16,6 +16,7 @@ import CategoryPage from "../../pages/categoryPage";
 import ArtAndCraft from "../../pages/artAndCraft";
 import ContactPage from "../../pages/contactPage";
 import PrivateRoute from "./PrivateRoute";
+import MyArtAndCraft from "../../pages/myCraft";
 
 const router = createBrowserRouter([
   {
@@ -48,6 +49,14 @@ const router = createBrowserRouter([
         path: "/art-crafts",
         element: <ArtAndCraft />,
         loader: getCraftItems,
+      },
+      {
+        path: "my-crafts",
+        element: (
+          <PrivateRoute>
+            <MyArtAndCraft />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/art-crafts/:id",
