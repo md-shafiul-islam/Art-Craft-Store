@@ -26,7 +26,10 @@ const CategoryPage = ({ ...props }) => {
         <div className="grid grid-cols-12 gap-4">
           {craftItems?.map((item) => {
             return (
-              <div className="col-span-3" key={`category-item-${item?._id}`}>
+              <div
+                className="col-span-3 xs:col-span-12 sm:col-span-12 md:col-span-3 lg:col-span-3"
+                key={`category-item-${item?._id}`}
+              >
                 <ItemCard item={item} />
               </div>
             );

@@ -18,7 +18,7 @@ const ArtAndCraft = ({ ...props }) => {
   return (
     <div className="container mx-auto">
       <div className="flex flex-col justify-center items-center gap-8">
-        <div className="flex flex-row gap-12 items-center my-16">
+        <div className="flex flex-row xs:flex-col sm:flex-col md:flex-row lg:flex-row gap-12 items-center my-16">
           <div>
             <h2 className="text-xl font-bold text-nowrap">Art & Carft</h2>
           </div>
@@ -36,7 +36,10 @@ const ArtAndCraft = ({ ...props }) => {
         <div className="grid grid-cols-12 gap-6">
           {artCrafItems?.map((item) => {
             return (
-              <div className="col-span-3" key={`category-item-${item?._id}`}>
+              <div
+                className="col-span-3 md:col-span-3 lg:col-span-3 xs:col-span-12 sm:col-span-12"
+                key={`category-item-${item?._id}`}
+              >
                 <ItemCard item={item} />
               </div>
             );
