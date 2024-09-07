@@ -9,7 +9,7 @@ const Error404Page = () => {
       <Helmet>
         <title>Ayat Craft | Not found</title>
       </Helmet>
-      <Header />
+      {/* <Header /> */}
       <section>
         <div className="w-full min-h-screen flex justify-center items-center">
           <div className="card-body text-center w-full h-3/4">
@@ -31,7 +31,7 @@ const Error404Page = () => {
           </div>
         </div>
       </section>
-      <Footer />
+      {/* <Footer /> */}
     </React.Fragment>
   );
 };

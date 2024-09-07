@@ -83,9 +83,10 @@ const AuthProvider = ({ children, ...props }) => {
             // console.log("Update Error ", error);
           });
 
-        sendEmailVerification(user).then((res) => {
-          onNotifySuccess("Please, check you email and verify you account");
-        });
+        //TODO: Enable Email Varification after result
+        // sendEmailVerification(user).then((res) => {
+        //   onNotifySuccess("Please, check you email and verify you account");
+        // });
         signOut(auth);
         setTimeout(() => {
           callBack();
