@@ -7,7 +7,7 @@
 - List of Art & Craft by category.
 - Also have my art & craft items (By User).
 - Adding user/customer.
-- User/Customer can add art & craft items.
+- User/Customer can add art & craft items. Also Can remove item.
 - User can login via google, github (if needed more option than it could be added easily).
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
