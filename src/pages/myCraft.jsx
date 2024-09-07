@@ -5,6 +5,7 @@ import ItemCard from "../Components/Utils/ItemCard";
 import axios from "axios";
 import { AuthContext } from "../Context/AuthProvider";
 import Loading from "../Components/Utils/Loading";
+import { REQUEST_HEADER } from "../utils/type";
 
 const MyArtAndCraft = ({ ...props }) => {
   const { user } = useContext(AuthContext);

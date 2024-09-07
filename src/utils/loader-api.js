@@ -1,4 +1,5 @@
 import axios from "axios";
+import { REQUEST_HEADER } from "./type";
 
 export const getAllCategory = async () => {
   try {

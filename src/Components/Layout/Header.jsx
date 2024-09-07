@@ -12,7 +12,7 @@ const Header = () => {
       <div className="container mx-auto">
         <div className="navbar ">
           <div className="navbar-start">
-            <div className="dropdown">
+            <div className="dropdown text-white">
               <div
                 tabIndex={0}
                 role="button"
@@ -33,6 +33,12 @@ const Header = () => {
                   />
                 </svg>
               </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content rounded-box z-50 mt-3 w-52 p-2 shadow bg-gray-500"
+              >
+                <NavBar />
+              </ul>
             </div>
             <NavLink to={"/"} className=" text-white text-xl">
               <i className="fa-brands fa-firstdraft"></i>&nbsp; Ayat Art & Craft

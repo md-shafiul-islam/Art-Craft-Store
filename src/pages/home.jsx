@@ -9,6 +9,7 @@ import ShortText from "../Components/Utils/ShortText";
 import { Typewriter } from "react-simple-typewriter";
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
+import { REQUEST_HEADER } from "../utils/type";
 const HomePage = () => {
   const [craftItems, setCraftItems] = useState([]);
 
@@ -44,7 +45,7 @@ const HomePage = () => {
       </Helmet>
       <section className="container mx-auto">
         {/* Slider Start */}
-        <div className="w-full h-[480px] py-4 my-6 bg-gradient-to-r from-slate-500 to-slate-200 rounded-md p-5 ">
+        <div className="w-full h-[480px] sm:h-[550px] xs:h-[550px] md:h-[480px] lg:h-[480px]  py-4 my-6 bg-gradient-to-r from-slate-500 to-slate-200 rounded-md p-5 ">
           <CraftSlider sliders={craftItems} />
         </div>
 
@@ -53,7 +54,7 @@ const HomePage = () => {
 
       <section className="container mx-auto">
         <div className="flex flex-row">
-          <h1 className="font-semibold text-4xl my-10">
+          <h1 className="font-semibold text-4xl sm:text-3xl xs:text-3xl md:text-4xl my-10">
             <span className="border-b py-2">
               Welcome Ayat{" "}
               <Typewriter
@@ -65,7 +66,7 @@ const HomePage = () => {
             </span>
           </h1>{" "}
         </div>
-        <div className="grid grid-cols-12 gap-5 my-6">
+        <div className="grid grid-cols-12 xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-12 lg:grid-cols-12 gap-5 my-6">
           {craftItems?.map((item) => {
             return (
               <div key={`key-${item?._id}`} className="box-border col-span-3">
@@ -77,8 +78,8 @@ const HomePage = () => {
       </section>
       <section className="container mx-auto">
         <div className="w-full flex flex-row justify-center items-center my-10 border-t border-b border-gray-300">
-          <div className="w-2/3">
-            <div className="grid grid-cols-4 gap-12 items-center my-16">
+          <div className="w-2/3 xs:w-full sm:w-full md:w-2/3 lg:w-2/3">
+            <div className="grid grid-cols-4 sm:grid-cols-1 xs:grid-cols-1 md:grid-cols-4 gap-12 items-center my-16">
               <div className="col-span-2">
                 <h3 className="text-2xl font-normal">
                   We love{" "}
@@ -96,7 +97,7 @@ const HomePage = () => {
               <div className="col-span-2">
                 <div className="flex flex-row items-center">
                   <label className="w-full flex flex-row items-center pl-3 gap-3 h-10 border border-green-500 rounded-s-xl space-x-2 ">
-                    <i class="fa-solid fa-envelope-open-text  "></i>
+                    <i className="fa-solid fa-envelope-open-text  "></i>
                     <input
                       type="text"
                       className="h-full outline-none "
@@ -118,8 +119,8 @@ const HomePage = () => {
         </div>
       </section>
       <section>
-        <div className="container mx-auto">
-          <div className="grid grid-cols-2 justify-center items-center">
+        <div className="container mx-auto my-6">
+          <div className="grid grid-cols-2 xs:grid-cols-1 sm:grid-cols-1 md:grid-cols-2  lg:grid-cols-2  justify-center items-center">
             <div className="flex flex-col gap-5">
               <span>For large orders</span>
               <h2 className="text-3xl">Place a bulk order with us</h2>
@@ -145,7 +146,7 @@ const HomePage = () => {
                 />
               </div>
             </div>
-            <div className="p-5">
+            <div className="p-5 xs:order-first sm:order-first md:order-none">
               <img src="https://i.ibb.co/xmKd306/il-1140x-N-3392291175-n6lk.webp" />
             </div>
           </div>
