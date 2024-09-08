@@ -3,9 +3,12 @@ import { useLoaderData } from "react-router-dom";
 import { isEmptyOrNull } from "../utils/helper";
 import AddProductForm from "../Components/Product/AddProductForm";
 import { AuthContext } from "../Context/AuthProvider";
+import Loading from "../Components/Utils/Loading";
 
 const AddProductPage = () => {
   const categoryResp = useLoaderData();
+
+  const [isDataLoading, setIsDataLoading] = useState(true);
 
   const [categories, setCategories] = useState([]);
 
@@ -16,6 +19,7 @@ const AddProductPage = () => {
       if (!isEmptyOrNull(categoryResp.data)) {
         if (categoryResp.data.status) {
           setCategories(categoryResp.data.response);
+          setIsDataLoading(false);
         }
       }
     }
@@ -25,6 +29,10 @@ const AddProductPage = () => {
     userName: user.displayName,
     userEmail: user.email,
   };
+
+  if (isDataLoading) {
+    return <Loading isLoading={isDataLoading} />;
+  }
 
   return (
     <React.Fragment>

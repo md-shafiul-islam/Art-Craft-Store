@@ -7,7 +7,7 @@ import RatingCard from "../Components/Utils/RatingCard";
 import ItemCard from "../Components/Utils/ItemCard";
 import Loading from "../Components/Utils/Loading";
 
-const ItemSinglePage = ({ ...props }) => {
+const MyItemDetailsPage = ({ ...props }) => {
   const itemResp = useLoaderData();
   const [isDataLoading, setIsDataLoading] = useState(true);
 
@@ -19,7 +19,7 @@ const ItemSinglePage = ({ ...props }) => {
       onNotifySuccess(itemResp.message);
       setArtCraft(itemResp.response.product);
       setRelatedItems(itemResp.response.cat);
-      setIsDataLoading(false)
+      setIsDataLoading(false);
     } else {
       onNotifyError(`Item Not found`);
     }
@@ -38,7 +38,6 @@ const ItemSinglePage = ({ ...props }) => {
     image,
   } = artCraft;
 
-  
   if (isDataLoading) {
     return <Loading isLoading={isDataLoading} />;
   }
@@ -108,23 +107,9 @@ const ItemSinglePage = ({ ...props }) => {
             <p>{description}</p>
           </div>
         </div>
-        <div className="w-full">
-          <h2 className="font-semibold text-3xl my-6">
-            <span className="pr-7 border-b border-gray-300">Similar Items</span>
-          </h2>
-          <div className="grid grid-cols-5 gap-5">
-            {relatedItems.length > 0
-              ? relatedItems?.map((item) => {
-                  return (
-                    <ItemCard key={`related-items-${item?._id}`} item={item} />
-                  );
-                })
-              : "Item Not found !!"}
-          </div>
-        </div>
       </div>
     </React.Fragment>
   );
 };
 
-export default ItemSinglePage;
+export default MyItemDetailsPage;

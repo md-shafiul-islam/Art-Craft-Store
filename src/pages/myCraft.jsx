@@ -6,10 +6,12 @@ import axios from "axios";
 import { AuthContext } from "../Context/AuthProvider";
 import Loading from "../Components/Utils/Loading";
 import { REQUEST_HEADER } from "../utils/type";
+import MyItemCard from "../Components/Utils/MyItemCard";
 
 const MyArtAndCraft = ({ ...props }) => {
   const { user } = useContext(AuthContext);
   const [artCrafItems, setArtCrafItems] = useState([]);
+  const [isDataLoading, setIsDataLoading] = useState(true);
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -26,6 +28,7 @@ const MyArtAndCraft = ({ ...props }) => {
           if (data.status) {
             setArtCrafItems(data.response);
             onNotifySuccess(data.message);
+            setIsDataLoading(false);
           }
         }
         setIsLoading(false);
@@ -48,14 +51,11 @@ const MyArtAndCraft = ({ ...props }) => {
           </div>
         </div>
 
-        <div className="grid grid-cols-12 gap-6">
+        <div className="grid grid-cols-1 gap-6">
           {artCrafItems?.map((item) => {
             return (
-              <div
-                className="col-span-3 xs:col-span-12 sm::col-span-12 md::col-span-4 lg:col-span-3"
-                key={`category-item-${item?._id}`}
-              >
-                <ItemCard item={item} />
+              <div className="" key={`category-item-${item?._id}`}>
+                <MyItemCard item={item} />
               </div>
             );
           })}

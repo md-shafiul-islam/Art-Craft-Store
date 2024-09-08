@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useLoaderData, useParams } from "react-router-dom";
 import { isEmptyOrNull } from "../utils/helper";
 import ItemCard from "../Components/Utils/ItemCard";
+import Loading from "../Components/Utils/Loading";
 
 const CategoryPage = ({ ...props }) => {
   const { cat } = useParams();
+  const [isDataLoading, setIsDataLoading] = useState(true);
 
   const cateItemResp = useLoaderData();
 
@@ -14,10 +16,14 @@ const CategoryPage = ({ ...props }) => {
     if (!isEmptyOrNull(cateItemResp)) {
       if (cateItemResp.status) {
         setCraftItems(cateItemResp.response);
+        setIsDataLoading(false);
       }
     }
   }, [cateItemResp]);
 
+  if (isDataLoading) {
+    return <Loading isLoading={isDataLoading} />;
+  }
   return (
     <div className="container mx-auto">
       <div className="flex flex-col justify-center items-center gap-8">

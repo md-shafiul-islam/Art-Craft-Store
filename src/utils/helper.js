@@ -1,4 +1,9 @@
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
+
 import { Bounce, toast } from "react-toastify";
+
+const SwalAllert = withReactContent(Swal);
 
 export const isEmptyOrNull = (obj) => {
   if ((obj === undefined && obj === null) || obj === `null`) {
@@ -104,3 +109,24 @@ export const onNotifySuccess = (title) => {
   });
 };
 
+export const onConfrimAlert = (
+  title,
+  yesText = "Yes",
+  noText = "No",
+  cancelText = "",
+  onConfrim = () => {}
+) => {
+  SwalAllert.fire({
+    title: title,
+    showDenyButton: true,
+    showCancelButton: true,
+    confirmButtonText: yesText,
+    denyButtonText: noText,
+  }).then((result) => {
+    if (result.isConfirmed) {
+      onConfrim();
+    } else if (result.isDenied) {
+      Swal.fire(cancelText, "", "info");
+    }
+  });
+};

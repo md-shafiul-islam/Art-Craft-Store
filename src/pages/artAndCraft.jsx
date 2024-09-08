@@ -2,18 +2,26 @@ import React, { useEffect, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import { isEmptyOrNull } from "../utils/helper";
 import ItemCard from "../Components/Utils/ItemCard";
+import Loading from "../Components/Utils/Loading";
 
 const ArtAndCraft = ({ ...props }) => {
   const artCrafItemsResp = useLoaderData();
+  const [isDataLoading, setIsDataLoading] = useState(true);
+
   const [artCrafItems, setArtCrafItems] = useState([]);
 
   useEffect(() => {
     if (!isEmptyOrNull(artCrafItemsResp)) {
       if (artCrafItemsResp.status) {
         setArtCrafItems(artCrafItemsResp.response);
+        setIsDataLoading(false);
       }
     }
   }, [artCrafItemsResp]);
+
+  if (isDataLoading) {
+    return <Loading isLoading={isDataLoading} />;
+  }
 
   return (
     <div className="container mx-auto">
